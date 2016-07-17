@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+	<meta charset="UTF-8"
+	<title><h1>The Psychic Game</title></h1>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	
+</head>
+
+<body>
+
+<! - - start code - - >
+	
+<div id="psychic game">
+		
+	<p>Guess What Letter I am Thinking Of?</p>
+	<p id="wins">wins:0 </p>
+	<p id="losses">losses:</p>
+	<p id="guesses">guesses left:9 </p>
+	<p id="yourguess">your guess:</p>
+
+</div>
+
+<script type="text/javascript">
+
+//Choices//
+var letters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","_"
+];
+
+//Tallies// 
+var wins = 0;
+var losses = 0;
+var guesses = 9;
+var yourguess = " ";
+var gameOver=false;
+
+//Computer Guess//
+var computerGuess =letters[Math.floor(Math.random() * letters.length)];
+console.log(computerGuess);
+document.onkeyup = function(event) {
+
+//Player Guess//
+var playerGuess = String.fromCharCode(event.keycode).toLowerCase();
+yourguess = yourguess + ", " + playerGuess;
+
+Results(playerGuess, computerGuess);
+document.getElementByID("yourguess").innerHTML = "yourguess:" + " " + yourguess;
+
+}
+
+//Display Tallies//Functions//
+function Results (player,computer){
+	if(computer == player){
+		wins++;
+		console.log("wins" + wins);
+		guessesLeft = 9;
+		computerGuess=letters[Math.floor(Math.randon() * letters.length)];
+
+document.getElementByID("wins").innerHTML = "wins:" + wins; yourguess = " ";
+	}
+
+else {
+	guessesLeft== 0;
+	console.log(guessesLeft);
+	document.getElementByID("guesses").innerHTML = "guessesLeft:" + " " + guessesLeft;
+		if (guessesLeft == 0) {
+			losses++;
+			document.getElementByID("losses").innerHTML = "losses: " + losses;
+			guessesLeft = 10;
+			yourguess = "";
+		
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
